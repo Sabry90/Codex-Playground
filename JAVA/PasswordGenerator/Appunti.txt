@@ -1,0 +1,283 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class PasswordGenerator {
+
+	
+	public static int numerocasuale(int min, int max) {
+		// Restituisce un numero casuale compreso tra 0 e 100
+		Random R = new Random();
+		int n = R.nextInt(max - min + 1) + min;
+		return n;
+	}
+	
+	public static void main(String[] args) {
+		int scelta;
+		Scanner input = new Scanner(System.in);
+		do
+		{
+			System.out.println("1. GENERA NUOVA PASSWORD");
+			System.out.println("2. ESCI");
+				do
+				{
+					System.out.println("SCEGLI UN'OPZIONE:");                
+	                scelta = input.nextInt();
+	                input.nextLine(); // Consuma il newline rimasto nel buffer
+	                if (scelta != 1 && scelta != 2)
+                    {
+                        System.out.println("Opzione non valida, riprova.");
+                    }
+	            } while (scelta != 1 && scelta != 2);
+			if (scelta==1)
+			{
+				int lunghezza;
+				do
+				{
+					System.out.println("Inserisci la lunghezza della password (minimo 8 caratteri):");
+					lunghezza = input.nextInt();
+					input.nextLine(); // Consuma il newline rimasto nel buffer
+					if (lunghezza < 8)
+                    {
+                        System.out.println("Lunghezza non valida, riprova.");
+                    }
+				} while (lunghezza < 8);
+				
+				String alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+				String password = "";
+				int da = 0;
+				int a = alfabeto.length() - 1;
+				for (int i=0;i<lunghezza;i++)
+				{
+					int posizionecasuale = numerocasuale(da, a);
+					char ch = alfabeto.charAt(posizionecasuale);
+					password += ch;
+				}
+				System.out.println("PASSWORD GENERATA: " + password);
+				
+			    
+			}
+			
+			if (scelta !=2)
+			{
+				System.out.println("...PREMI INVIO PER TORNARE AL MENU");
+				input.nextLine(); // Aspetta che l'utente prema INVIO
+			}
+			
+		} while (scelta != 2);
+		System.out.println("Ciao ciao.");
+	}
+
+}
+
+
+
+con ampliamento 
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class PasswordGenerator {
+
+	
+	public static int numerocasuale(int min, int max) {
+		// Restituisce un numero casuale compreso tra 0 e 100
+		Random R = new Random();
+		int n = R.nextInt(max - min + 1) + min;
+		return n;
+	}
+	
+	public static void main(String[] args) {
+		int scelta;
+		Scanner input = new Scanner(System.in);
+		do
+		{
+			System.out.println("1. GENERA NUOVA PASSWORD");
+			System.out.println("2. ESCI");
+				do
+				{
+					System.out.println("SCEGLI UN'OPZIONE:");                
+	                scelta = input.nextInt();
+	                input.nextLine(); // Consuma il newline rimasto nel buffer
+	                if (scelta != 1 && scelta != 2)
+                    {
+                        System.out.println("Opzione non valida, riprova.");
+                    }
+	            } while (scelta != 1 && scelta != 2);
+			if (scelta==1)
+			{
+				int lunghezza;
+				do
+				{
+					System.out.println("Inserisci la lunghezza della password (minimo 8 caratteri):");
+					lunghezza = input.nextInt();
+					input.nextLine(); // Consuma il newline rimasto nel buffer
+					if (lunghezza < 8)
+                    {
+                        System.out.println("Lunghezza non valida, riprova.");
+                    }
+				} while (lunghezza < 8);
+				
+				
+				char ch;
+				String alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+				String password = "";
+				int da = 0;
+				int a = alfabeto.length() - 1;
+				for (int i=0;i<lunghezza;i++)
+				{
+					
+					boolean trovata_ripetizione_eccessiva;
+					do {
+							int posizionecasuale = numerocasuale(da, a);
+							ch = alfabeto.charAt(posizionecasuale);
+							
+							trovata_ripetizione_eccessiva = false;
+							int conteggio_caratteri_controllati = 0;
+							int posizione_carattere = password.length()-1;
+							while (!trovata_ripetizione_eccessiva && posizione_carattere>=0 && conteggio_caratteri_controllati<8){
+								if (password.charAt(posizione_carattere) == ch) {
+									trovata_ripetizione_eccessiva = true;
+								}
+								posizione_carattere--;
+								conteggio_caratteri_controllati++;						
+							}
+							
+						} while (trovata_ripetizione_eccessiva);
+					password += ch;
+				}
+				System.out.println("PASSWORD GENERATA: " + password);
+				
+			    
+			}
+			
+			if (scelta !=2)
+			{
+				System.out.println("...PREMI INVIO PER TORNARE AL MENU");
+				input.nextLine(); // Aspetta che l'utente prema INVIO
+			}
+			
+		} while (scelta != 2);
+		System.out.println("Ciao ciao.");
+	}
+
+}
+
+
+
+
+
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Borell {
+
+	static String alfabeto = "abcdefghijklmnopqrstuvwxyz ";
+	static Random R = new Random();
+	static String risultato = "";
+    
+
+
+    // Metodo per generare una stringa casuale della lunghezza specificata
+    private static String generaStringaCasuale(int lunghezza) {
+    	risultato = "";
+		for (int i = 0; i < lunghezza; i++) {
+			int pos = R.nextInt(alfabeto.length());
+			risultato += alfabeto.charAt(pos);
+		}
+		return risultato;
+	
+    }
+
+    // Metodo per cercare di generare la parola target
+    public static void generaParolaTarget(String target) {
+        String generata;
+        int tentativi = 0;
+        int l = target.length();
+        // rileviamo il tempo di partenza e fine
+        long startTime = System.currentTimeMillis();
+        
+      
+        do {
+            generata = generaStringaCasuale(l);
+            tentativi++;
+            System.out.println("Tentativo " + tentativi + ": " + generata);
+        } while (!generata.equals(target));
+        long endTime = System.currentTimeMillis();
+        System.out.println("Parola trovata '" + target + "' dopo " + tentativi + " tentativi.");
+        System.out.println("Tempo impiegato: " + (endTime - startTime) + " millisecondi.");
+    }
+
+    public static void main(String[] args) {
+    	Scanner input = new Scanner(System.in);
+        System.out.println("Dammi la parola da cercare: ");
+        String parola = input.nextLine();
+        generaParolaTarget(parola);
+    }
+}
+
+
+
+
+
+import java.util.Scanner;
+
+public class PasswordFinder {
+    static int minl = 3;
+    static String alfabeto = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567minl9!@#$%^&*()_+";
+    static int lunghezzaAlfabeto = alfabeto.length();
+    static boolean trovata = false; // flag per controllare se la password è stata trovata
+    
+    // Metodo per generare tutte le password di una determinata lunghezza
+    public static boolean generaPassword(String currentPassword, int lunghezzaTarget, String passwordTarget, boolean show) {
+        if (trovata) return true; // Se la password è già stata trovata, interrompe ulteriori generazioni
+        if (show) System.out.println("Generando password: " + currentPassword);
+        if (currentPassword.length() == lunghezzaTarget) {
+            if (currentPassword.equals(passwordTarget)) {
+                System.out.println("Password trovata: " + currentPassword);
+                trovata = true; // Imposta il flag su true per indicare che la password è stata trovata
+                return true;
+            }
+            return false;
+        }
+        
+        for (int i = 0; i < lunghezzaAlfabeto; i++) {
+            if (generaPassword(currentPassword + alfabeto.charAt(i), lunghezzaTarget, passwordTarget, show)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void cercaPassword(int lungmin, int lungmax, String passwordTarget, boolean show) {
+        for (int lunghezzapassword = lungmin; lunghezzapassword <= lungmax; lunghezzapassword++) {
+            if (generaPassword("", lunghezzapassword, passwordTarget, show)) {
+                System.out.println("Interrompo la ricerca, password trovata.");
+                break;
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Inserisci la password da trovare: ");
+        String passwordDaTrovare = input.nextLine();
+        System.out.println("Inserisci la lunghezza minima della ricerca password: ");
+        int lunghezzaMinima = input.nextInt();
+        input.nextLine(); // Consuma il newline rimasto
+        
+        System.out.println("Inserisci la lunghezza massima della ricercapassword: ");
+        int lunghezzaMassima = input.nextInt();
+        input.nextLine();
+        String mostra = "";
+        do {
+        	System.out.println("Vuoi visualizzare le password generate? (si/no): ");        
+        	mostra = input.nextLine().toLowerCase().trim() ;
+        }while(!mostra.equals("si") && !mostra.equals("no"));
+        boolean show = mostra.equals("si");
+        
+        cercaPassword(1, 5, passwordDaTrovare, show);
+    }
+}
