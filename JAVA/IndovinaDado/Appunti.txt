@@ -1,0 +1,58 @@
+Progetto Java: Gioco "Indovina il Dado"
+
+Descrizione del progetto:
+
+Il progetto consiste in un semplice gioco da terminale chiamato "Indovina il Dado". 
+L’utente deve indovinare il numero ottenuto da un lancio di dado simulato dal computer.
+Dopo ogni tentativo, l’utente può decidere se ripetere il gioco oppure terminare. 
+Alla fine, il programma mostra un riepilogo delle partite giocate, 
+delle vittorie e delle sconfitte.
+
+
+Regole del gioco:
+Il computer genera un numero casuale compreso tra 1 e 6 (come un vero dado).
+
+L’utente prova a indovinare questo numero.
+
+Se il numero è corretto, viene conteggiata una vittoria; altrimenti una sconfitta.
+
+Dopo ogni partita viene chiesto se si vuole giocare ancora.
+
+Il gioco termina quando l’utente scrive “no”.
+
+Alla fine, vengono stampate le statistiche finali.
+
+
+ARGOMENTI JAVA USATI NEL CODICE:
+Scanner: Per leggere input da tastiera (cioè far scrivere l'utente).
+
+Random: Per generare numeri casuali (come il dado).
+
+Metodi / funzioni personalizzate: Come dado() e numerocasuale() 
+
+Struttura do-while: Per ripetere il gioco finché l’utente vuole continuare,
+e anche per chiedere ripetutamente un input valido (es. "Vuoi ripetere?").
+
+If-else: Per controllare se il numero è valido, se l’utente ha indovinato, ecc.
+
+Variabili: Come vittorie, sconfitte, partite, numerotentato, ecc. per salvare i dati del gioco.
+
+Controlli su input: Per assicurarsi che l’utente inserisca numeri validi (tra 1 e 6) e risposte corrette (“si” o “no”).
+
+
+
+OBIETTIVO RAGGIUNTO CON QUESTO PROGETTO:
+
+Logica di gioco e interazione con l’utente
+
+Gestione di cicli e condizioni
+
+Uso di metodi
+
+Input/output da console
+
+Gestione di numeri casuali
+
+
+
+
