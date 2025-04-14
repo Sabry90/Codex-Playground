@@ -1,0 +1,24 @@
+"Dado - Sfida a Due Giocatori"
+Questo gioco da console simula una sfida tra due giocatori 
+che devono indovinare il numero estratto da un dado virtuale (valori da 1 a 6).
+Ogni giocatore ha 3 tentativi per indovinare il numero.
+Più velocemente indovina, più punti guadagna:
+
+1° tentativo: 3 punti
+
+2° tentativo: 2 punti
+
+3° tentativo: 1 punto
+
+Alla fine di ogni partita, i punti vengono sommati, e il giocatore può decidere se continuare o meno. 
+Quando il gioco termina, viene mostrata la classifica finale con i punteggi totali e il vincitore.
+
+
+OBIETTIVO DEL PROGETTO:
+
+Simulare un gioco con logica semplice ma interattiva.
+
+Utilizzare concetti base di Java come input, cicli, condizioni e metodi.
+
+Gestire punteggi, confronto e dichiarazione del vincitore.
+
